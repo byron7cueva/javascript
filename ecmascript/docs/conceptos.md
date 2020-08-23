@@ -10,3 +10,4 @@
 * es7 Junio del 2016
 * es8 Junio del 2017
 * es9 Junio del 2018
+* es10 Junio del 2019

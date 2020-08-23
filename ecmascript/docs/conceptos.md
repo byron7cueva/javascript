@@ -8,3 +8,4 @@
 * Se saca una nueva versión cada junio.
 * es6 Junio del 2015
 * es7 Junio del 2016
+* es8 Junio del 2017

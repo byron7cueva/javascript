@@ -11,3 +11,5 @@
 * es8 Junio del 2017
 * es9 Junio del 2018
 * es10 Junio del 2019
+* ES.Next es como se le hace referencia a la proxima version que sera icorporada al lenguaje.
+* TC39: Es el comite técnico, es un grupo de desarrolladores, e implementadores a cargo de revisar cada una de estas propuestas y que cumplan el estandar que se implica.

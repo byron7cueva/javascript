@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>Prototype</h1>
+  <p>Abre la consola</p>
+  <script>
+    //Object.create
+    /* const heroMethods = {
+      saludar: function() {
+        console.log(`Me llamo ${this.name}`);
+      },
+    }
+
+    function Hero(name) {
+      // Object.create, copia todas las propiedades de un objeto a uno nuevo
+      // tambien hace herencia prototipal en el objeto __proto__
+      const hero = Object.create(heroMethods);
+      hero.name = name;
+      return hero;
+    }
+
+    const zelda = Hero('Zelda');
+    zelda.saludar();
+
+    const link = Hero('Link');
+    link.saludar(); */
+
+
+
+
+    /* function Hero(name) {
+      const hero = Object.create(Hero.prototype);
+      hero.name = name;
+      return hero;
+    }
+
+    // Todas las funciones tienen el objeto prototype
+    // Inicialmente prototype es un objeto vacio
+    Hero.prototype.saludar = function() {
+        console.log(`Me llamo ${this.name}`);
+    }
+
+    const zelda = Hero('Zelda');
+    zelda.saludar();
+
+    const link = Hero('Link');
+    link.saludar();*/
+
+
+
+
+    function Hero(name) {
+      // Al usar new realiza lo siguiente automáticamente
+      // Siempre lo va sacar del prototype del contructor
+      // Y lo guarda en this
+      // const hero = Object.create(Hero.prototype);
+      this.name = name;
+
+      // Y realiza lo siguiente de forma automática
+      //return this;
+    }
+
+    Hero.prototype.saludar = function() {
+        console.log(`New Hero ${this.name}`);
+    }
+
+    const zelda = new Hero('Zelda');
+    zelda.saludar();
+
+    const link = new Hero('Link');
+    link.saludar();
+  </script>
+</body>
+</html>

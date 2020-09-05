@@ -23,3 +23,9 @@ Es una representación del documento HTML
 * O clausuras.
 * Es la combinacion del scope de una funcion y la funcion donde fue definida.
 * Es una técnica que nos permite establecer valores ya predefinidos y crear nuevas funciones para trabajar con estos valores. Permite ecapsular estos valores.
+
+## Prototipe
+
+* Es un concepto casi único de JavaScript.
+* Que se aparta de como normalmente como manejamos clases y objetos comunmente en otros lenguajes.
+* En JavaScript todos son objetos.

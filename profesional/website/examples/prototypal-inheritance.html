@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>Herencia Prototipal</h1>
+  <p>Abre la consola</p>
+  <script>
+    function Hero(name) {
+      this.name = name;
+    }
+
+    // Hero.prototype es un objeto donde definimos el 
+    // prototipo de las instancias de Hero
+    // Es decir las instancias de Hero van a heredar de Hero.prototype
+    Hero.prototype.saludar = function () {
+      console.log(`Hola soy ${this.name}.`);
+    }
+
+    //Hero.[[Prototype]] (es una forma de referirnos a __proto__) es el prototipo de Hero
+    // Es decir Hero hereda de Hero.[[Prototype]]
+
+    const zelda = new Hero('Zelda');
+
+    // Propiedades de la instancia
+    console.log('Name: ', zelda.name);
+
+    // Propiedades de la clase
+    console.log('Saludar: ', zelda.saludar);
+
+    // Propiedades heredadas de object
+    console.log('toString', zelda.toString);
+
+    // hasOwnProperty: Para inspeccionar si le pertenece directamente a un objeto
+    console.log('zelda.hasOwnProperty', zelda.hasOwnProperty('name'));
+    console.log('zelda.hasOwnProperty', zelda.hasOwnProperty('saludar'));
+    //__proto__ es un objeto donde caeron todas las propiedades de Hero.prototype
+    //__proto__ puede cambiar de acuerdo a la implementacion, por ejemplo en cada browser o node
+    // La forma correcta de acceder a este objeto es:
+    // Devuelve el prototipo
+    const prototypeOdZeld = Object.getPrototypeOf(zelda);
+    console.log(prototypeOdZeld === Hero.prototype);
+    console.log(prototypeOdZeld.hasOwnProperty('toString'));
+    const prototypeOfPrototypeOdZeld = Object.getPrototypeOf(Hero.prototype);
+    console.log(prototypeOfPrototypeOdZeld.hasOwnProperty('toString'));
+
+    // Object es el punto de partida de todos los objetos de javascript
+    // Las funciones tambien son objetos
+
+  </script>
+</body>
+</html>

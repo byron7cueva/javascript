@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>Scope</h1>
+  <p>Abre la consola</p>
+  <script>
+    // Global scope
+    // window es el scope global
+    // las variables que se definen en el scope global se gregan a window
+    var message = 'Hello world';
+
+    // Function Scope
+    function printNumbers() {
+      // Al poner var i = 0, en el for eso es como definir
+      // var i; en el scope del método
+      for(var i = 0; i < 10; i++) {
+        // El loop va acabar antes que se ejecute el setTimeout
+        setTimeout(function() {
+          // Va imprimir el valor que actualmente tiene i
+          // como el loop termino antes que se ejecute cualquier setTimeout
+          // se va imprimir siempre 10
+          console.log(i);
+        }, 100);
+      }
+    }
+
+    //solucion
+    function printNumbers2() {
+      for(var i = 0; i < 10; i++) {
+        function eventuallyPrintNumber(n) {
+          // Se crea un nuevo ambito en el cual vive la variable n
+          // n sera el valor pasado como argumentos
+          setTimeout(function() {
+            console.log(n);
+          }, 100);
+        }
+        eventuallyPrintNumber(i);
+      }
+    }
+
+    //printNumbers2();
+
+    // Block Scope
+    // let opera sobre el block scope
+    function printNumbers3() {
+      for(let i = 0; i < 10; i++) {
+        // Cada vez que se ejecuta una iteraccion se crea un block scope nuevo
+        // En este block se va recordar el valor
+        setTimeout(function() {
+          console.log(i);
+        }, 100);
+      }
+    }
+
+    printNumbers3();
+
+    // Module scope
+    // Hace que la vida de una variable va estar limitado al archivo donde esta definido
+    // para ello se debe agregar el archivo con 
+  </script>
+</body>
+</html>

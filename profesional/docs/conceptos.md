@@ -17,3 +17,9 @@ Es una representación del documento HTML
 *async*: Este atributo de `<script>` permite hacer el script feching asincronamente, sin interrumpir el procesamiento del DOM. Pero el script execution una vez cargado el script si va detener el procesamiento del DOM.
 
 *defer*: Este atributo de `<script>` va deferir la ejecución del javascript hasta el final del procesamiento del HTML. El script feching es asíncrono sin interrumpir el procesamiento HTML.
+
+## Closure
+
+* O clausuras.
+* Es la combinacion del scope de una funcion y la funcion donde fue definida.
+* Es una técnica que nos permite establecer valores ya predefinidos y crear nuevas funciones para trabajar con estos valores. Permite ecapsular estos valores.

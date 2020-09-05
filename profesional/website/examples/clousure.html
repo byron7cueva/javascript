@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>Clousure</h1>
+  <script>
+    // color se esta definiendo en el ambito del block global
+    let color = 'green';
+
+    function printColor() {
+      console.log(color);
+    }
+
+    printColor();
+
+    // Clousures
+    // IIFE: Inmediatly Invoque Function Expression
+    (function() {
+      let color2 = 'blue';
+      function printColor2() {
+        console.log(color2);
+      }
+      printColor2();
+    })();
+
+    // Funciones que regresan funciones
+    function makeColorPrinter(color) {
+      let colorMessage = `The color is ${color}`;
+
+      // Aunque se retorne la funcion y se la ejecute fuera
+      // esta funcion recuerda los valores con los que se creo en el scope
+      return function () {
+        console.log(colorMessage);
+      }
+    }
+
+    let greenColorPrinter = makeColorPrinter('green');
+    greenColorPrinter();
+
+    // Variables privadas
+    function makeCounter(n) {
+      let count = n;
+
+      return {
+        increase: function() {
+          count += 1;
+        },
+        decrease: function() {
+          count -= 1;
+        },
+        getCount: function() {
+          return count;
+        }
+      }
+    }
+
+    let counter = makeCounter(7);
+    
+    console.log('The count is:', counter.getCount());
+    counter.increase();
+    console.log('The count is:', counter.getCount());
+    counter.decrease();
+    counter.decrease();
+    counter.decrease();
+    counter.decrease();
+    console.log('The count is:', counter.getCount());
+  </script>
+</body>
+</html>

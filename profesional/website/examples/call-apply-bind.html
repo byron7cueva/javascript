@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>Call, Apply and Bind</h1>
+  <p>Abre la consola</p>
+
+  <ul>
+    <li><button class="call-to-action">Aprender</button></li>
+    <li><button class="call-to-action">Aprender Más</button></li>
+    <li><button class="call-to-action">Nunca pares de aprender</button></li>
+  </ul>
+  <script>
+    // call, apply and bind, son parte del prototipo de function
+    // Nos ayudan a establecer cual va ser el this del contexto en cual se va ha llamar
+    // la funcion
+
+    // Establecer this con call
+    function saludar() {
+      console.log(`Hola soy ${this.name} ${this.lastname}`);
+    }
+
+    const byron = {
+      name: 'Byron',
+      lastname: 'Cueva'
+    }
+
+    // Se debe indicar el this en el cual se va llamar
+    saludar.call(byron);
+
+    // call usando parametros
+    function caminar (meters, direction) {
+      console.log(`${this.name} camina ${meters} metros hacia ${direction}`);
+    }
+    caminar.call(byron, 400, 'norte');
+
+
+
+
+    // Establecer this con apply
+    // hace la misma funcion que call pero sus parametros se pasan de manera diferente
+    const valores = [100, 'sur'];
+    caminar.apply(byron, valores);
+
+    // bind no va llamar la funcion automaticamente sino que va construir
+    // una nueva funcion que se ejecuta en el scope que le indiquemos, va tener ya el
+    // this integrado
+    const daniel = {
+      name: 'Daniel',
+      lastname: 'Sanchez'
+    }
+    const danielSaluda = saludar.bind(daniel);
+    danielSaluda();
+
+    //bind con argumentos
+    const danielCamina = caminar.bind(daniel);
+    danielCamina(1000, 'este');
+
+    // Curing es una técnica es donde guardamos parcialmente unos argumentos
+    // y luego llenamos los demas. Es una técnica funcional que va permitir hacer
+    // funciones reutilizables para contexto donde estan parcialmente establecidos unos valores
+    const danielCaminaArg = caminar.bind(daniel, 2000);
+    danielCaminaArg('oeste');
+
+    //Cuando es util uno de estos metodos
+    const buttons = document.getElementsByClassName('call-to-action');
+    // buttons es un NodeList es parecido a un array pero no tiene la funcion forEach
+    
+    // Usando una de las funciones del array para poder recorrer el NodeLIst
+    Array.prototype.forEach.call(buttons, function(button) {
+      button.onclick = function () {
+        alert('Nunca pares de aprender')
+      }
+    })
+  </script>
+</body>
+</html>

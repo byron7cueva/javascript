@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/examples">back</a>
+  <h1>This</h1>
+  <p>
+    <code>this</code> se refiere a un objeto. Este objeto es el que actualmente está
+    ejecutando el pedazo de código.
+  </p>
+  <p>Abre la consola</p>
+  <script>
+    // this en el Global Scope
+    // El browser lo va asignar window
+    console.log(`this: ${this}`);
+
+    // this en el Function Scope
+    function whoIsThis() {
+      return this;
+    }
+
+    // cuanso se ejecuta una funcion por si sola sin ser parte de un objeto
+    // this sera window
+    console.log(`whoIsThis: ${whoIsThis()}`);
+
+    function whoIsThisStrict() {
+      'use strict';
+      // Indicando que el modo estricto es solo en la funcion
+      // El modo estricto nos puede ayudar a evitar errores que le puede pasar al programador
+      // estos errores nos van a salir en desarrollo
+      return this;
+    }
+
+    // Nos dice que this es undefined
+    console.log(`whoIsThisStrict: ${whoIsThisStrict()}`);
+
+    // this en el contexto de un objeto
+    const person = {
+      name: 'Byron',
+      saludar: function() {
+        //this se refiere al objeto que actualmente esta ejecutando el pedazo de código
+        console.log(`Hola soy ${this.name}`);
+      }
+    }
+
+    person.saludar();
+
+    // Cuando sacamos la funcion de un objeto
+    const action = person.saludar;
+    // Accion no se esta llamando dentro del contexto de un objeto sino directamente
+    // this.name no existe
+    action();
+
+    // this en el contexto de una clase
+    function Person(name) {
+      // Todas las funciones tienen un this que empieza como {}, un objeto vacio
+      // Funciona como un constructor
+      this.name = name;
+      // this se refiere a la instancia de la clase no sobre el objeto prototipado
+    }
+
+    Person.prototype.saludar = function() {
+      console.log(`Hola me llamo ${this.name}`);
+    }
+
+    const luis = new Person('Luis');
+    luis.saludar();
+  </script>
+</body>
+</html>

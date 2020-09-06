@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/exercises">back</a>
+  <h1>Generadores</h1>
+  <p>Abre la consola</p>
+  <script>
+    // Creando un generador
+    function* simpleGenerator() {
+      console.log('Generator start');
+      yield 1; // La ejecución va por cada yield deteniendo en cada uno de ellos retornando el valor que se le pase
+      yield 2;
+      yield 3;
+      console.log('Generator end');
+    }
+
+    // No es ejecutable de por si
+    // nos devuelve una funcion con la cual le podemos ejecutar
+    let gen = simpleGenerator();
+    // Ejecutando el generador
+    // Devuelve {value: valor devuelto por yield, done: true si termina, false si todavia falta por ejecutar}
+    // done: true quiere decir que termino la ejecucion
+    console.log(gen.next());
+    console.log(gen.next());
+    console.log(gen.next());
+    console.log(gen.next());
+
+    // Generador infinito
+    function* idMarker() {
+      let id = 1;
+      while(true) {
+        yield id; // Se va detener
+        id = id + 1;
+      }
+    }
+
+    gen = idMarker();
+    console.log(gen.next());
+    console.log(gen.next());
+    console.log(gen.next()); // siempre va devolver done: false
+
+    // Pasando valores a la funcion
+    console.log('idMarkerWithReset');
+    function* idMarkerWithReset() {
+      let id = 1;
+      let reset;
+      while(true) {
+        reset = yield id; // El valor que se la pasa como parametros se lo obtiene a traves de yield
+        if (reset) {
+          id = 1;
+        } else {
+          id = id + 1;
+        }
+      }
+    }
+
+    gen = idMarkerWithReset();
+    console.log(gen.next());
+    console.log(gen.next());
+    console.log(gen.next(true));
+    console.log(gen.next());
+    console.log(gen.next());
+
+    // El fobonacci con generador
+    console.log('Fibonacci');
+    function* fibonacci() {
+      let a = 1;
+      let b = 1;
+
+      while(true) {
+        const nextNumber = a + b;
+        a = b;
+        b = nextNumber;
+        yield nextNumber;
+      }
+    }
+
+    gen = fibonacci();
+    console.log(gen.next());
+    console.log(gen.next());
+    console.log(gen.next());
+  </script>
+</body>
+</html>

@@ -119,5 +119,18 @@ Es una representación del documento HTML
 * Podemos interceptar algunas llamadas a un objeto y entre cosas.
 * Antes que la llamada llege al objeto manipularla.
 
+### Generadores
+
+* Son funciones especiales, podemos empezar su ejecución y detenerlas. Salir y volver a continuar su ejecucion.
+* Podemos regresar a la funcion y continuar con su ejecución desde donde quedo. Recuerda su contexto en el que se quedo, cuales eran las variables que tenian en su escope.
+* Cada vez que llamamos next, la ejecución del generador va continuar hasta el proximo yield.
+* Podemos tener generadores infinitos.
+* Cuando llamamos next también podemos pasar valores que la función recibe.
+* Se prestan para hacer funciones eficientes en memoria.
+
+
+
+
+
 
 

@@ -1,0 +1,16 @@
+{
+  "name": "website-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html  exercises/index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.0.2"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}

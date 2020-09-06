@@ -108,3 +108,11 @@ Es una representación del documento HTML
 
 * Todas las funciones Async devuelven una promesa.
 
+### Getter and Setters
+
+* Son funciones que podemos utilizar dentro de objetos.
+* Nos permite tener propiedades virtuales.
+* No son propiedades reales.
+
+
+

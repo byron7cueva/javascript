@@ -27,6 +27,7 @@ async function precache() {
   // Indicando los recursos que queremos que esten en cache
   // Necesitamos devolver la promesa
   return cache.addAll([
+    /*
     '/', // Es importante agregar la ruta
     '/index.html',
     '/assets/index.js',
@@ -35,6 +36,7 @@ async function precache() {
     '/assets/plugins/AutoPause.js',
     '/assets/index.css',
     '/assets/BigBuckBunny.mp4',
+    */
   ])
 }
 

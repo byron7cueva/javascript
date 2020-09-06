@@ -128,6 +128,15 @@ Es una representación del documento HTML
 * Cuando llamamos next también podemos pasar valores que la función recibe.
 * Se prestan para hacer funciones eficientes en memoria.
 
+### Abort Controler
+
+* Permite enviar alguna señal a un petición fetch para que se detenga.
+* Por cada fecth se debe crear un nuevo AbortController.
+
+### IntersectionObserver
+
+* Nos va permitir observar elementos y si crusan un umbral que definimos dentro de un contenerdor, nos va notificar y podremos tomar acción.
+
 
 
 

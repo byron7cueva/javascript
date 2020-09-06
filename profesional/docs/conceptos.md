@@ -137,7 +137,15 @@ Es una representación del documento HTML
 
 * Nos va permitir observar elementos y si crusan un umbral que definimos dentro de un contenerdor, nos va notificar y podremos tomar acción.
 
+### Page Visibility API del DOM
 
+* Permite saber si el usuario esta en la pagina y no ha cambiado de tag.
+
+### Service Workers
+
+* Es una capa que vive entre el navegador y el internet.
+* Funcionan igual que un proxy e interceptan peticiones.
+* Estos se instalan en el navegador del usuario. Cada vez que hagamos cambios debemos instalarlos nuevamente.
 
 
 

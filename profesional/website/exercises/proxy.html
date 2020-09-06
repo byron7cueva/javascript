@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/exercises">back</a>
+  <h1>Proxy</h1>
+  <p>Abre la consola</p>
+  <!-- Esta libreria permite ver la distancia entre dos cadenas (numero de diferencias entre dos cadenas)-->
+  <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+  <script>
+    //Proxy(target: Objeto que se quiere interceptar, handler: es un objeto y contiene las funciones que interceptan)
+    const target = {
+      red: 'Rojo',
+      green: 'Verde',
+      blue: 'Azul'
+    };
+
+    const handler = {
+      get(obj, prop) {
+        if (prop in obj) {
+          return obj[prop]
+        }
+
+        // Object.keys listar todas las llaves de un objeto
+        const suggestion =  Object.keys(obj).find(key => {
+          return Levenshtein.get(key, prop) <= 2
+        })
+
+        if (suggestion) {
+          console.log(`${prop} no se encontro. Quisiste decir ${suggestion}`);
+        }
+
+        // Se deve retornar algo
+        return obj[prop];
+      }
+    };
+
+    const p = new Proxy(target, handler);
+  </script>
+</body>
+</html>

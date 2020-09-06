@@ -114,5 +114,10 @@ Es una representación del documento HTML
 * Nos permite tener propiedades virtuales.
 * No son propiedades reales.
 
+### Proxy
+
+* Podemos interceptar algunas llamadas a un objeto y entre cosas.
+* Antes que la llamada llege al objeto manipularla.
+
 
 

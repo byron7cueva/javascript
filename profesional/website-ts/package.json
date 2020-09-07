@@ -12,5 +12,8 @@
   },
   "browserslist": [
     "last 1 Chrome version"
-  ]
+  ],
+  "dependencies": {
+    "mediaplayer": "link:../mediaplayer"
+  }
 }

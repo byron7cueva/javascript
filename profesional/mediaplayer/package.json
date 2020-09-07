@@ -1,0 +1,12 @@
+{
+  "name": "mediaplayer",
+  "version": "1.0.0",
+  "main": "lib/MediaPlayer.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc src/**/*.ts src/plugins/**/*.ts --outDir lib"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  }
+}

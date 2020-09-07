@@ -1,4 +1,4 @@
-## No Fundamientos
+## No Fundamentos
 
 * Promesas
 * Getter, Setter

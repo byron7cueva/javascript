@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/main.css">
   <title>Calories Counter</title>
 </head>
 
@@ -34,9 +33,9 @@
               <thead class="thead-light">
                 <tr>
                   <th>Totals</th>
-                  <th>0</th>
-                  <th>0</th>
-                  <th>0</th>
+                  <th id="totalCalories">0</th>
+                  <th id="totalCarbs">0</th>
+                  <th id="totalProtein">0</th>
                   <th></th>
                 </tr>
               </thead>
@@ -45,19 +44,19 @@
           <div class="card-footer">
             <div class="row mb-2">
               <div class="col">
-                  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Description">
+                  <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Description" id="description">
               </div>
               <div class="col">
-                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Calories">
+                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Calories" id="calories">
               </div>
               <div class="col">
-                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Carbs">
+                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Carbs" id="carbs">
               </div>
               <div class="col">
-                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Protein">
+                  <input type="number" min="0" class="form-control mb-2 mr-sm-2" placeholder="Protein" id="protein">
               </div>
               <div class="col">
-                  <button class="btn btn-primary mb-2">
+                  <button class="btn btn-primary mb-2" onclick="validateInputs()">
                     <i class="fas fa-plus"></i>
                   </button>
               </div>
@@ -67,10 +66,6 @@
       </div>
     </div>
   </div>
-
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js"></script>
 </body>
-
 </html>
